@@ -3,19 +3,26 @@ require_once 'autoload.php';
 
 class BeverageTestDrive {
     public function __construct () {
-        $tea = new Tea();
-        $coffee = new Coffee();
+        try {
+            $tea = new Tea();
+            $coffee = new Coffee();
 
-        echo 'Making tea...<br/>';
-        $tea->prepareRecipe();
+            echo 'Making tea...<br/>';
+            $tea->prepareRecipe();
 
-        echo 'Making coffee...<br/>';
-        $coffee->prepareRecipe();
+            echo 'Making coffee...<br/>';
+            $coffee->prepareRecipe();
 
-        $teaHook = new TeaWithHook();
+            $teaHook = new TeaWithHook();
+            echo 'Making tea...<br/>';
+            $teaHook->prepareRecipe();
 
-        echo 'Making tea...<br/>';
-        $teaHook->prepareRecipe();
+            $coffeeHook = new CoffeeWithHook();
+            echo 'Making coffee...<br/>';
+            $coffeeHook->prepareRecipe();
+        } catch (Exception $e) {
+            echo $e->getMessage(); 
+        }
     }
 }
 
