@@ -4,7 +4,7 @@ abstract class CaffeineBeverageWithHook {
         $this->boilWater();
         $this->brew();
         $this->pourInCup();
-        if ($this->custmoerWantsCondiments) {
+        if ($this->custmoerWantsCondiments()) {
             $this->addCondiments();
         }
     }

@@ -15,7 +15,7 @@ class BeverageTestDrive {
         $teaHook = new TeaWithHook();
 
         echo 'Making tea...<br/>';
-        $tea->prepareRecipe();
+        $teaHook->prepareRecipe();
     }
 }
 
