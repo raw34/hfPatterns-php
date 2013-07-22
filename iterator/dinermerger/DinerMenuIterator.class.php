@@ -1,5 +1,5 @@
 <?php
-class DinerMenuIterator implements Iterator
+class DinerMenuIterator implements _Iterator
 {
     private $items;
     private $position = 0;
@@ -11,14 +11,14 @@ class DinerMenuIterator implements Iterator
 
     public function next ()
     {
-        $menuItem = $this->items[$this->positon];
-        $this->positon++;
+        $menuItem = $this->items[$this->position];
+        $this->position++;
         return $menuItem;
     }
 
     public function hasNext ()
     {
-        if ($this->positon >= count($this->items) || $this->items[$this->positon] == null) {
+        if ($this->position >= count($this->items) || $this->items[$this->position] == null) {
             return false; 
         } else {
             return true;

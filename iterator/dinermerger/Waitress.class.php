@@ -13,11 +13,11 @@ class Waitress
     public function printMenu ()
     {
         $pancakeIterator = $this->pancakeHouseMenu->createIterator();
-        echo "MENU\n----\nBREACKFAST";
+        echo "MENU<br/>----<br/>BREACKFAST<br/>";
         $this->_printMenu($pancakeIterator);
 
         $dinerIterator = $this->dinerMenu->createIterator();
-        echo "MENU\n----\nLUNCH";
+        echo "MENU<br/>----<br/>LUNCH<br/>";
         $this->_printMenu($dinerIterator);
     }
 
@@ -27,7 +27,7 @@ class Waitress
             $menuItem = $iterator->next();
             echo $menuItem->getName() .', ';
             echo $menuItem->getPrice() .' -- ';
-            echo $menuItem->getDescription();
+            echo $menuItem->getDescription() . '<br/>';
         }
     }
 
@@ -42,8 +42,8 @@ class Waitress
          while ($iterator->hasNext()) {
             $menuItem = $iterator->next(); 
             if ($menuItem->isVegetarian()) {
-                echo $menuItem->getName() . "\t\t";
-                echo $menuItem->getPrice() . "\t";
+                echo $menuItem->getName() . "<br/><br/>";
+                echo $menuItem->getPrice() . "<br/>";
                 echo $menuItem->getDescription();
             }
          }

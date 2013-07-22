@@ -1,7 +1,7 @@
 <?php
-interface Iterator
+interface _Iterator
 {
     public function hasNext ();
     public function next ();
-    public function remove ();
+    //public function remove ();
 }

@@ -1,4 +1,6 @@
 <?php
+require_once 'autoload.php';
+
 class MenuTestDrive
 {
     public function __construct ()
@@ -32,3 +34,5 @@ class MenuTestDrive
         }
     }
 }
+
+$obj = new MenuTestDrive();

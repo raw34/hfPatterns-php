@@ -1,8 +1,8 @@
 <?php
-class PancakeHouseMenuIterator implements Iterator
+class PancakeHouseMenuIterator implements _Iterator
 {
     private $items;
-    private $posison;
+    private $position = 0;
     
     public function __construct ($items)
     {
@@ -10,14 +10,15 @@ class PancakeHouseMenuIterator implements Iterator
     }
     public function next ()
     {
-        $obj = $this->items->get($this->positon);
-        $this->positon++;
+        //$obj = $this->items->get($this->position);
+        $obj = $this->items[$this->position];
+        $this->position++;
         return $obj;
     }
 
     public function hasNext ()
     {
-        if ($this->positon >= count($this->items)) {
+        if ($this->position >= count($this->items)) {
             return false;
         } else {
             return true;
