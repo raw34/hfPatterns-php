@@ -1,11 +1,11 @@
 <?php
-class PancakeHouseMenuIterator implements _Iterator
+class CafeMenuIterator implements _Iterator
 {
     private $items;
     
-    public function __construct ($items)
+    public function __construct ($hashtable)
     {
-        $this->items = $items;
+        $this->items = array_values($hashtable);
     }
     public function next ()
     {

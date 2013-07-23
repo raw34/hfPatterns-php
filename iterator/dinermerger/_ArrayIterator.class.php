@@ -1,22 +1,24 @@
 <?php
-class PancakeHouseMenuIterator implements _Iterator
+class _ArrayIterator implements _Iterator
 {
     private $items;
-    
+    private $position = 0;
+
     public function __construct ($items)
     {
         $this->items = $items;
     }
+
     public function next ()
     {
-        $item = current($this->items);
-        next($this->items);
-        return $item;
+        $menuItem = $this->items[$this->position];
+        $this->position++;
+        return $menuItem;
     }
 
     public function hasNext ()
     {
-        if (key($this->items) === null) {
+        if ($this->position >= count($this->items) || $this->items[$this->position] == null) {
             return false;
         } else {
             return true;

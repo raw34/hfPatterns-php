@@ -7,7 +7,8 @@ class MenuTestDrive
     {
         $pancakeHouseMenu = new PancakeHouseMenu();
         $dinerMenu = new DinerMenu();
-        $waitress = new Waitress($pancakeHouseMenu, $dinerMenu);
+        $cafeMenu = new CafeMenu();
+        $waitress = new Waitress($pancakeHouseMenu, $dinerMenu, $cafeMenu);
         $waitress->printMenu();
     }
 
