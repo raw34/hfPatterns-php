@@ -12,14 +12,18 @@ class PancakeHouseMenuIterator implements _Iterator
         $item = current($this->items);
         next($this->items);
         return $item;
+       // return next($this->items);
     }
 
     public function hasNext ()
     {
+        /*
         if (key($this->items) === null) {
             return false;
         } else {
             return true;
         }
+        */
+        return key($this->items) !== null;
     }
 }

@@ -44,10 +44,19 @@ class Menu extends MenuComponent
     {
         echo '<br/>' . $this->getName();
         echo ', ' . $this->getDescription();
-        echo '------------------------';
+        echo '<br/>-------------------------------<br/>';
+        /*
         $interator = $this->menuComponets->iterator();
         while ($interator->hashNext()) {
             $menuComponet = $interator->next(); 
+            $menuComponet->_print();
+        }
+         */
+        $obj = new ArrayObject($this->menuComponets);
+        $interator = $obj->getIterator();
+        while ($interator->valid()) {
+            $menuComponet = $interator->current();
+            $interator->next(); 
             $menuComponet->_print();
         }
     }
