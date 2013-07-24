@@ -1,8 +1,8 @@
 <?php
 interface State
 {
-    public function insertQuater ();
-    public function ejectQuater ();
+    public function insertQuarter ();
+    public function ejectQuarter ();
     public function turnCrank ();
     public function dispense ();
 }
