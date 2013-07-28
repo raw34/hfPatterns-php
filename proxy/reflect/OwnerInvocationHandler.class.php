@@ -10,14 +10,14 @@ class OwnerInvocationHandler implements InvocationHandler
 
     public function __call ($method, $args)
     {
-        //throw new Exception();
+        $args = isset($args[0]) ? $args[0] : $args;
         try {
             $rf_obj = new ReflectionObject($this->person);
             $fun = new ReflectionMethod($rf_obj->getName(), $method);
             if (strpos($method, 'setHotOrNotRating') !== false) {
                 throw new Exception();
             } else {
-                return $fun->invoke($args);
+                return $fun->invoke($this->person, $args);
             }
             /*
             if (strpos($method, 'get') !== false) {
@@ -29,7 +29,7 @@ class OwnerInvocationHandler implements InvocationHandler
             }
              */
         } catch (Exception $e) {
-            //echo $e->getMessage();
+            throw new Exception($e->getTraceAsString());
         }
         return null;
     }
