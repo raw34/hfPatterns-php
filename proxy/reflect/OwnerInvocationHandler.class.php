@@ -2,22 +2,23 @@
 class OwnerInvocationHandler implements InvocationHandler
 {
     private $person;
+    private $proxy;
     
     public function __construct ($person)
     {
         $this->person = $person;
+        $this->proxy = new ReflectionObject($person);
     }
 
-    public function __call ($method, $args)
+    public function __call ($name, $args)
     {
         $args = isset($args[0]) ? $args[0] : $args;
         try {
-            $rf_obj = new ReflectionObject($this->person);
-            $fun = new ReflectionMethod($rf_obj->getName(), $method);
-            if (strpos($method, 'setHotOrNotRating') !== false) {
+            $method = new ReflectionMethod($this->proxy->getName(), $name);
+            if (strpos($name, 'setHotOrNotRating') !== false) {
                 throw new Exception();
             } else {
-                return $fun->invoke($this->person, $args);
+                return $method->invoke($this->person, $args);
             }
             /*
             if (strpos($method, 'get') !== false) {

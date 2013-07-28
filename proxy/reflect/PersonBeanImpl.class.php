@@ -24,6 +24,7 @@ class PersonBeanImpl implements PersonBean
 
     public function getHotOrNotRating ()
     {
+        //echo "Rating = {$this->rating} RatingCount = {$this->ratingCount}";
         if ($this->ratingCount == 0) {
             return 0;
         } else {
@@ -48,7 +49,7 @@ class PersonBeanImpl implements PersonBean
 
     public function setHotOrNotRating ($rating)
     {
-        $this->rating = $rating;
+        $this->rating += $rating;
         $this->ratingCount++;
     }
 }
