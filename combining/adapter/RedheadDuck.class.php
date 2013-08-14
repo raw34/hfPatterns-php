@@ -1,5 +1,5 @@
 <?php
-class ReadheadDuck implements Quackable
+class RedheadDuck implements Quackable
 {
     public function quack() {
         echo 'Quack';

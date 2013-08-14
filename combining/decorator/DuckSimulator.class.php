@@ -14,16 +14,20 @@ class DuckSimulator
     }
 
     public function simulate() {
-        $mallardDuck = new MallardDuck();
-        $redheadDuck = new RedheadDuck();
-        $duckCall = new DuckCall();
-        $rubberDuck = new RubberDuck();
+        $mallardDuck = new QuackCounter(new MallardDuck());
+        $redheadDuck = new QuackCounter(new RedheadDuck());
+        $duckCall = new QuackCounter(new DuckCall());
+        $rubberDuck = new QuackCounter(new RubberDuck());
+        $gooseDuck = new GooseAdapter(new Goose());
 
-        echo "\nDuck Simulator<br/>";
+        echo "\nDuck Simulator: With Decorator<br/>";
         $this->_simulate($mallardDuck);
         $this->_simulate($redheadDuck);
         $this->_simulate($duckCall);
         $this->_simulate($rubberDuck);
+        $this->_simulate($gooseDuck);
+
+        echo 'The ducks quacked ' . QuackCounter::getQuacks() . ' times';
     }
 
     public function _simulate($duck) {
