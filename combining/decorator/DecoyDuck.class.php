@@ -1,7 +1,11 @@
 <?php 
 class DecoyDuck implements Quackable
 {
-    public function DecoyDuck() {
+    public function quack() {
         echo '<< Silence>>';
+    }
+
+    public function __tostring() {
+        return 'Decoy Duck';
     }
 }

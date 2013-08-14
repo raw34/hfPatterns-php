@@ -21,8 +21,6 @@ class DuckSimulator
         $rubberDuck = $duckFactory->createRubberDuck();
         $gooseDuck = new GooseAdapter(new Goose());
 
-        echo "\nDuck Simulator: With Composite<br/>";
-
         $flockOfDucks = new Flock();
         
         $flockOfDucks->add($redheadDuck);
@@ -44,11 +42,11 @@ class DuckSimulator
 
         $flockOfDucks->add($flockOfMallards);
 
-        echo "\nDuck Simulator: Whole Flock Simulation<br/>";
-        $this->_simulate($flockOfDucks);
+        echo "\nDuck Simulator: With Observer<br/>";
+        $quackologist = new Quackologist();
+        $flockOfDucks->registerObserber($quackologist);
 
-        echo "\nDuck Simulator: Mallard flock Simulation<br/>";
-        $this->_simulate($flockOfMallards);
+        $this->_simulate($flockOfDucks);
 
         echo 'The ducks quacked ' . QuackCounter::getQuacks() . ' times';
     }

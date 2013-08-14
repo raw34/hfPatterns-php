@@ -1,0 +1,26 @@
+<?php
+class RedheadDuck implements Quackable
+{
+    private $observable;
+
+    public function __construct() {
+        $this->observable = new Observable($this);
+    }
+
+    public function quack() {
+        echo 'Quack';
+    }
+
+    public function registerObserber($observer) {
+        $this->observable->registerObserber($observer);
+    }
+
+    public function notifyObservers() {
+        $this->observable->notifyObservers();
+    }
+
+    public function __tostring() {
+        return 'Redhead Duck';
+    }
+}
+?>
