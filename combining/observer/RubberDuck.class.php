@@ -8,7 +8,8 @@ class RubberDuck implements Quackable
     }
 
     public function quack() {
-       echo 'Squack';
+        echo 'Squack';
+        $this->notifyObservers();
     }
 
     public function registerObserber($observer) {

@@ -9,6 +9,7 @@ class DecoyDuck implements Quackable
 
     public function quack() {
         echo '<< Silence>>';
+        $this->notifyObservers();
     }
 
     public function registerObserber($observer) {

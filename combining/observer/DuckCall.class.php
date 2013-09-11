@@ -9,6 +9,7 @@ class DuckCall implements Quackable
 
     public function quack() {
         echo 'Kwak';
+        $this->notifyObservers();
     }
 
     public function registerObserber($observer) {

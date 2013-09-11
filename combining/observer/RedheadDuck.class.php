@@ -9,6 +9,7 @@ class RedheadDuck implements Quackable
 
     public function quack() {
         echo 'Quack';
+        $this->notifyObservers();
     }
 
     public function registerObserber($observer) {
